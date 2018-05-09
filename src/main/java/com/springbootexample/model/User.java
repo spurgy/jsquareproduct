@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -23,7 +24,8 @@ import org.springframework.data.annotation.Transient;
 public class User extends TimeStampClass {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="users_users_id_seq")
+    @SequenceGenerator(name="users_users_id_seq", sequenceName="users_users_id_seq", allocationSize=1)
 	@Column(name = "users_id")
 	private Long id;
 	@Column(name = "email")
