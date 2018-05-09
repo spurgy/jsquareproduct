@@ -23,7 +23,7 @@ import org.springframework.data.annotation.Transient;
 public class User extends TimeStampClass {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "users_id")
 	private Long id;
 	@Column(name = "email")
