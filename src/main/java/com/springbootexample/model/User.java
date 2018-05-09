@@ -24,8 +24,8 @@ import org.springframework.data.annotation.Transient;
 public class User extends TimeStampClass {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="users_users_id_seq")
-    @SequenceGenerator(name="users_users_id_seq", sequenceName="users_users_id_seq", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="myapp.users_users_id_seq")
+    @SequenceGenerator(name="myapp.users_users_id_seq", sequenceName="myapp.users_users_id_seq", allocationSize=1)
 	@Column(name = "users_id")
 	private Long id;
 	@Column(name = "email")
