@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -20,8 +21,9 @@ import javax.persistence.Table;
 public class Staff extends TimeStampClass{
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "staff_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="staff_staff_id_seq")
+    @SequenceGenerator(name="staff_staff_id_seq", sequenceName="staff_staff_id_seq", allocationSize=1)	
+	@Column(name = "staff_id")
     private Long id;
 	
 	@Column(name = "staff_name")

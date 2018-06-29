@@ -29,6 +29,25 @@ public class AjaxController {
 	@Autowired
 	private UserService userService;
 	
+	/*@RequestMapping(value = "/staff")
+	@ResponseBody
+    public String handleStaffRequest(HttpServletRequest request, Model model,@ModelAttribute StaffDetails staffDetails) {
+		model.addAttribute("view", "staff");
+		if(request.getMethod().matches("GET")) {
+	        return "base";
+		}
+		adminService.saveStaffDetails(staffDetails);
+		return "redirect:/admin/staff";
+    }*/
+	
+	@RequestMapping(value = "/getUsernameRole")
+	@ResponseBody
+    public Map<String,String> getUsernameRole() {
+		Map<String, String> filenames = userService.getUserNameRoleTopHeader();
+		System.out.println("getFileName");
+        return filenames;
+    }
+	
 	@RequestMapping(value = "/getDesignationsMap")
 	@ResponseBody
     public Map<Integer,String> getDesignationsMap() {

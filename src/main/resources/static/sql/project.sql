@@ -40,7 +40,7 @@ CREATE TABLE `user` (
 
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
-  `user_id` INT(11) NOT NULL,
+  `users_id` INT(11) NOT NULL,
   `role_id` INT(11) NOT NULL,
   `created` DATETIME NULL DEFAULT NULL,
   `updated` DATETIME NULL DEFAULT NULL,

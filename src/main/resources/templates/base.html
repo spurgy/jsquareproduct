@@ -25,7 +25,7 @@
 
 		<div th:replace="footer"></div>
 
-		<div th:replace="contentslider"></div>
+		<!-- <div th:replace="contentslider"></div> -->
 
 	</div>
 	<!-- ./wrapper -->
@@ -33,7 +33,18 @@
 	
 </body>
 <script th:replace="fragmentScript :: ${view}">
-
+	
 </script>
-
+<script>
+	$.post( "/util/getUsernameRole", function( data ) {
+		$.each(data, function(key, value){
+	        //$(".uploadfilename").append('<option value="'+ key +'">'+ value +'</option>')
+	        $("#userFullname").text(key);
+	        $("#username").text(key);
+	        $("#role").text(value);
+	        $("#username1").text(key);
+	        $("#role1").text(value);
+		})
+	});
+</script>
 </html>

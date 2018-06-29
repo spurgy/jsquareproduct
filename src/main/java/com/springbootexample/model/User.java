@@ -24,8 +24,8 @@ import org.springframework.data.annotation.Transient;
 public class User extends TimeStampClass {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="myapp.users_users_id_seq")
-    @SequenceGenerator(name="myapp.users_users_id_seq", sequenceName="myapp.users_users_id_seq", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="users_users_id_seq")
+    @SequenceGenerator(name="users_users_id_seq", sequenceName="users_users_id_seq", allocationSize=1)
 	@Column(name = "users_id")
 	private Long id;
 	@Column(name = "email")
@@ -45,6 +45,7 @@ public class User extends TimeStampClass {
 	private String lastName;
 	@Column(name = "active")
 	private int active;
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "users_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;

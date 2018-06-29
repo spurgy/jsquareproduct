@@ -58,6 +58,14 @@
 			  { "mData": "durationType" }
 		]
 	});
+	$("#setupDurationTable tr").css('cursor', 'hand');
+	$('#setupDurationTable tbody').on( 'click', 'tr', function () {
+	    console.log( staffDatatable.row( this ).data() );
+	    
+	    $(".serviceCatId").val($(this).val());	    
+	    $("#setupAddMembershipModal").modal({backdrop: "static"});
+		$("#setupAddMembershipModal").modal('show');
+	} );
 	
 	membershipDatatable = $('#setupMembershipTable').DataTable({
 		"sAjaxSource": "/util/getMembershipList",
@@ -114,7 +122,7 @@
 					          { "mData": null,
 					             "bSortable": false,
 					             "mRender": function(data, type, full) {
-					            	    return '<button type="button" class="btn btn-primary btn-sm addServiceToCat" data-name="'+data.name+'" value="'+data.id+'"><small>Add Service</small></button>' 
+					            	    return '<button type="button" class="btn btn-primary btn-sm addServiceToCat" data-name="'+data.name+'" 	value="'+data.id+'"><small>Add Service</small></button>' 
 					            	    }
 					          }
 						]

@@ -12,13 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "service")
 public class Service {
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="service_service_id_seq")
+    @SequenceGenerator(name="service_service_id_seq", sequenceName="service_service_id_seq", allocationSize=1)
 	@Column(name="service_id")
 	private Long id;
 	
